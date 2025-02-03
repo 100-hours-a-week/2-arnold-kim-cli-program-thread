@@ -10,6 +10,7 @@ public class InputView {
         System.out.println("커피 / 논커피");
         while (true) {
             String userInput = getUserInput("음료의 종류를 골라주세요. ");
+            System.out.println();
             if (!userInput.equals("커피") && !userInput.equals("논커피")) {
                 System.out.println("커피, 논커피 중 골라주세요.");
                 continue;
@@ -32,6 +33,7 @@ public class InputView {
                     }
                 }
                 String userInput = getUserInput("메뉴를 번호로 입력해주세요. ");
+                System.out.println();
                 if (beverageType.equals("커피")) {
                     return coffeeMenu[Integer.parseInt(userInput) - 1];
                 } else {
@@ -49,6 +51,7 @@ public class InputView {
             System.out.println("Iced");
 
             String userInput = getUserInput("따뜻한 음료와 차가운 음료 중에서 골라주세요. ");
+            System.out.println();
             if (!userInput.equals("Hot") && !userInput.equals("Iced")) {
                 System.out.println("Hot 또는 Iced 중에서 선택해주세요.");
                 continue;
@@ -63,6 +66,7 @@ public class InputView {
             System.out.println("디카페인 ... +500원");
 
             String userInput = getUserInput("카페인과 디카페인 중에서 골라주세요. ");
+            System.out.println();
             if (!userInput.equals("카페인") && !userInput.equals("디카페인")) {
                 System.out.println("카페인 또는 디카페인 중에서 선택해주세요.");
                 continue;
@@ -78,6 +82,7 @@ public class InputView {
             System.out.println("L ... +1000원");
 
             String userInput = getUserInput("사이즈를 선택해주세요. ");
+            System.out.println();
             if (!userInput.equals("S") && !userInput.equals("M") && !userInput.equals("L")) {
                 System.out.println("S, M, L 중에서 골라주세요.");
                 continue;
@@ -92,6 +97,7 @@ public class InputView {
             System.out.println("75%");
             System.out.println("100%");
             String userInput = getUserInput("당도를 선택해주세요. ");
+            System.out.println();
             if (!userInput.equals("25%") && !userInput.equals("50%") && !userInput.equals("75%") && !userInput.equals("100%")) {
                 System.out.println("25%, 50%, 75%, 100% 중에서 골라주세요.");
                 continue;
@@ -105,6 +111,7 @@ public class InputView {
         Scanner sc = new Scanner(System.in);
         while (userInput.isEmpty()) {
             System.out.println(consoleMessage);
+            System.out.print(">> ");
             userInput = sc.nextLine().strip();
         }
         return userInput;
