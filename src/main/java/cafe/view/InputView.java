@@ -92,6 +92,7 @@ public class InputView {
                 System.out.println("25%, 50%, 75%, 100% 중에서 골라주세요.");
                 continue;
             }
+            return userInput;
         }
     }
 
