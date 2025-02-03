@@ -106,7 +106,7 @@ public class InputView {
         }
     }
 
-    public String getUserInput(String consoleMessage) {
+    private String getUserInput(String consoleMessage) {
         String userInput = "";
         Scanner sc = new Scanner(System.in);
         while (userInput.isEmpty()) {
