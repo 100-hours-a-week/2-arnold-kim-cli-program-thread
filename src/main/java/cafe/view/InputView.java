@@ -32,7 +32,11 @@ public class InputView {
                     }
                 }
                 String userInput = getUserInput("메뉴를 번호로 입력해주세요. ");
-                return coffeeMenu[Integer.parseInt(userInput) - 1];
+                if (beverageType.equals("커피")) {
+                    return coffeeMenu[Integer.parseInt(userInput) - 1];
+                } else {
+                    return nonCoffeeMenu[Integer.parseInt(userInput) - 1];
+                }
             } catch (IndexOutOfBoundsException exception) {
                 System.out.println("제시된 메뉴의 숫자만 입력해주세요");
             }
