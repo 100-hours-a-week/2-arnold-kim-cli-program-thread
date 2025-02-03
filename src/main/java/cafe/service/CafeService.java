@@ -3,7 +3,6 @@ package main.java.cafe.service;
 import main.java.cafe.model.*;
 
 public class CafeService {
-    private static final int nonCoffeeTypeIndex = 3;
 
     public Beverage makeCoffee(String info, String size, String temperature, String isCaffeine) {
         Beverage beverage = makeBeverage(info, size, temperature);
@@ -14,15 +13,16 @@ public class CafeService {
         return coffee;
     }
 
-    public Beverage makeNonCoffee(String info, String size, String temperature) {
-        int numberOfBeverage = Character.getNumericValue(info.charAt(0));
+    public Beverage makeAde(String info, String size, String temperature, String sweetness) {
         Beverage beverage = makeBeverage(info, size, temperature);
 
-        if (numberOfBeverage < nonCoffeeTypeIndex) {
-            return new Ade(beverage.getName(), beverage.isHot(), beverage.getSize(), beverage.getPrice());
-        } else {
-            return new Tea(beverage.getName(), beverage.isHot(), beverage.getSize(), beverage.getPrice());
-        }
+        return new Ade(beverage.getName(), beverage.isHot(), beverage.getSize(), beverage.getPrice(), sweetness);
+    }
+
+    public Beverage makeTea(String info, String size, String temperature) {
+        Beverage beverage = makeBeverage(info, size, temperature);
+
+        return new Tea(beverage.getName(), beverage.isHot(), beverage.getSize(), 0);
     }
 
     private Beverage makeBeverage(String info, String size, String temperature) {

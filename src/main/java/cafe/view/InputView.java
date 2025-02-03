@@ -81,6 +81,19 @@ public class InputView {
             return userInput;
         }
     }
+    public String getSweetness() {
+        while (true) {
+            System.out.println("25%");
+            System.out.println("50%");
+            System.out.println("75%");
+            System.out.println("100%");
+            String userInput = getUserInput("당도를 선택해주세요. ");
+            if (!userInput.equals("25%") && !userInput.equals("50%") && !userInput.equals("75%") && !userInput.equals("100%")) {
+                System.out.println("25%, 50%, 75%, 100% 중에서 골라주세요.");
+                continue;
+            }
+        }
+    }
 
     public String getUserInput(String consoleMessage) {
         String userInput = "";
