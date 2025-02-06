@@ -26,14 +26,12 @@ public class CafeService {
     }
 
     private Beverage makeBeverage(String info, String size, String temperature) {
-        String[] infoList = info.split(" ");
         char sizeChar = size.charAt(0);
-
-        String nameOfBeverage = infoList[1];
-        int priceOfBeverage = Integer.parseInt(infoList[2].substring(0, infoList[2].length() - 1))
-                + getSizePrice(sizeChar);
-
         boolean isHot = temperature.equals("Hot");
+
+        BeverageParser beverageParser = BeverageParser.parse(info);
+        String nameOfBeverage = beverageParser.getName();
+        int priceOfBeverage = beverageParser.getPrice() + getSizePrice(sizeChar);
 
         return new Beverage(nameOfBeverage, isHot, sizeChar, priceOfBeverage);
     }
