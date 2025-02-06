@@ -1,6 +1,7 @@
 package main.java.cafe.controller;
 
 import main.java.cafe.model.Beverage;
+import main.java.cafe.model.OrderDetatils;
 import main.java.cafe.service.CafeService;
 import main.java.cafe.view.InputView;
 import main.java.cafe.view.OutputView;
@@ -26,27 +27,36 @@ public class CafeController {
     }
 
     private void orderMenu() {
+        OrderDetatils orderDetatils = getOrderDetatils();
+        makeBeverage(orderDetatils);
+
+    }
+
+    private OrderDetatils getOrderDetatils() {
         String beverageType = inputView.getBeverageType();
         String beverageInfo = inputView.getBeverageInfo(beverageType);
-        String isCaffeine = "카페인";
-        if (beverageType.equals("커피")) {
-            isCaffeine = inputView.getIsCaffeine();
-        }
+        String isCaffeine = beverageType.equals("커피") ? inputView.getIsCaffeine() : "카페인";
         String beverageTemperature = inputView.getTemperature();
         String beverageSize = inputView.getSize();
 
-        if (beverageType.equals("커피")) {
-            beverage = cafeService.makeCoffee(beverageInfo, beverageSize, beverageTemperature, isCaffeine);
+        return new OrderDetatils(beverageType, beverageInfo, beverageTemperature, isCaffeine, beverageSize);
+    }
+
+    private void makeBeverage(OrderDetatils orderDetatils) {
+        if (orderDetatils.getBeverageType().equals("커피")) {
+            beverage = cafeService.makeCoffee(orderDetatils.getBeverageInfo(), orderDetatils.getBeverageSize(), orderDetatils.getBeverageTemperature(), getOrderDetatils().getIsCaffeine());
         } else {
-            int numberOfBeverage = Character.getNumericValue(beverageInfo.charAt(0));
+            int numberOfBeverage = Character.getNumericValue(orderDetatils.getBeverageInfo().charAt(0));
             if (numberOfBeverage < nonCoffeeTypeIndex) {
                 String beverageSweetness = inputView.getSweetness();
-                beverage = cafeService.makeAde(beverageInfo, beverageSize, beverageTemperature, beverageSweetness);
+                beverage = cafeService.makeAde(orderDetatils.getBeverageInfo(), orderDetatils.getBeverageSize(), orderDetatils.getBeverageTemperature(), beverageSweetness);
             } else {
-                beverage = cafeService.makeTea(beverageInfo, beverageSize, beverageTemperature);
+                beverage = cafeService.makeTea(orderDetatils.getBeverageInfo(), orderDetatils.getBeverageSize(), orderDetatils.getBeverageTemperature());
             }
         }
+
     }
+
 
     private void printOrder() {
         outputView.printOrder(beverage);
