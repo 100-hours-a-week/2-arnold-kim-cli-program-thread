@@ -22,7 +22,7 @@ public class CafeService {
     public Beverage makeTea(String info, String size, String temperature) {
         Beverage beverage = makeBeverage(info, size, temperature);
 
-        return new Tea(beverage.getName(), beverage.isHot(), beverage.getSize(), 0);
+        return new Tea(beverage.getName(), beverage.isHot(), beverage.getSize(), beverage.getPrice());
     }
 
     private Beverage makeBeverage(String info, String size, String temperature) {
