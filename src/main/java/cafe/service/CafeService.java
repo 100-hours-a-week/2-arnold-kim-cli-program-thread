@@ -6,11 +6,8 @@ public class CafeService {
 
     public Beverage makeCoffee(String info, String size, String temperature, String isCaffeine) {
         Beverage beverage = makeBeverage(info, size, temperature);
-        boolean caffeine = isCaffeine.equals("카페인");
-        Beverage coffee = new Coffee(beverage.getName(), beverage.isHot(), beverage.getSize(), beverage.getPrice(), caffeine);
-        coffee.increasePrice(getCaffeinePrice(isCaffeine));
 
-        return coffee;
+        return new Coffee(beverage.getName(), beverage.isHot(), beverage.getSize(), beverage.getPrice() + getCaffeinePrice(isCaffeine), isCaffeine.equals("카페인"));
     }
 
     public Beverage makeAde(String info, String size, String temperature, String sweetness) {
