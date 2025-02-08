@@ -6,6 +6,8 @@ public class Beverage {
     private boolean isHot;
     private char size;
     private int price;
+    private int remainTime = 30;
+
 
     public Beverage(String name, boolean isHot, char size, int price) {
         this.name = name;
@@ -16,6 +18,10 @@ public class Beverage {
 
     public void increasePrice(int amount) {
         this.price += amount;
+    }
+
+    public void decreaseRemainTime(int amount) {
+        this.remainTime -= amount;
     }
 
     public String getName() {
@@ -32,6 +38,10 @@ public class Beverage {
 
     public int getPrice() {
         return price;
+    }
+
+    public int getRemainTime() {
+        return remainTime;
     }
 }
 ;

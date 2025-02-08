@@ -3,7 +3,7 @@ package main.java.cafe.view;
 import java.util.Scanner;
 
 public class InputView {
-    private final String[] coffeeMenu = {"1. 아메리카노 2900원", "2. 카페라떼 4500원", "3. 카페모카 4800원", "4. 헤이즐넛 아메리카노 3300원", "5. 아인슈페너 4900원"};
+    private final String[] coffeeMenu = {"1. 아메리카노 2900원", "2. 카페라떼 4500원", "3. 카페모카 4800원", "4. 헤이즐넛아메리카노 3300원", "5. 아인슈페너 4900원"};
     private final String[] nonCoffeeMenu = {"1. 애플망고에이드 4800원", "2. 레몬에이드 4800원", "3. 자몽에이드 4800원", "4. 복숭아아이스티 4300원", "5. 캐모마일 4500원"};
 
     public String getBeverageType(){
