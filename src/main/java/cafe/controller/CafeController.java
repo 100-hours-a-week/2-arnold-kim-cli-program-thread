@@ -29,7 +29,6 @@ public class CafeController {
     private void orderMenu() {
         OrderDetatils orderDetatils = getOrderDetatils();
         makeBeverage(orderDetatils);
-
     }
 
     private OrderDetatils getOrderDetatils() {
@@ -44,10 +43,10 @@ public class CafeController {
 
     private void makeBeverage(OrderDetatils orderDetatils) {
         if (orderDetatils.getBeverageType().equals("커피")) {
-            beverage = cafeService.makeCoffee(orderDetatils.getBeverageInfo(), orderDetatils.getBeverageSize(), orderDetatils.getBeverageTemperature(), getOrderDetatils().getIsCaffeine());
+            beverage = cafeService.makeCoffee(orderDetatils.getBeverageInfo(), orderDetatils.getBeverageSize(), orderDetatils.getBeverageTemperature(), orderDetatils.getIsCaffeine());
         } else {
             int numberOfBeverage = Character.getNumericValue(orderDetatils.getBeverageInfo().charAt(0));
-            if (numberOfBeverage < nonCoffeeTypeIndex) {
+            if (numberOfBeverage <= nonCoffeeTypeIndex) {
                 String beverageSweetness = inputView.getSweetness();
                 beverage = cafeService.makeAde(orderDetatils.getBeverageInfo(), orderDetatils.getBeverageSize(), orderDetatils.getBeverageTemperature(), beverageSweetness);
             } else {
@@ -57,8 +56,7 @@ public class CafeController {
 
     }
 
-
-    private void printOrder() {
-        outputView.printOrder(beverage);
+    private String printOrder() {
+        return outputView.printOrder(beverage);
     }
 }
