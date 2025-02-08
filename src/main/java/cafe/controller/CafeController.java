@@ -1,8 +1,10 @@
 package main.java.cafe.controller;
 
 import main.java.cafe.model.Beverage;
+import main.java.cafe.model.BeverageManager;
 import main.java.cafe.model.OrderDetatils;
 import main.java.cafe.service.CafeService;
+import main.java.cafe.util.TimerThread;
 import main.java.cafe.view.InputView;
 import main.java.cafe.view.OutputView;
 
@@ -11,6 +13,8 @@ public class CafeController {
     private final InputView inputView;
     private final OutputView outputView;
     private final CafeService cafeService;
+    private final TimerThread timerThread;
+    private final BeverageManager beverageManager;
     private static Beverage beverage;
 
     private final int nonCoffeeTypeIndex = 3; // noncoffee의 배열 인덱스에서 nonCoffeeTypeIndex 미만의 음료는 Ade, 이상은 Tea이다.
@@ -19,11 +23,18 @@ public class CafeController {
         outputView = new OutputView();
         inputView = new InputView();
         cafeService = new CafeService();
+        beverageManager = new BeverageManager();
+        timerThread = new TimerThread(beverageManager);
     }
 
     public void run() {
-        orderMenu();
-        printOrder();
+        while (true) {
+            orderMenu();
+            if (printOrder().equals("Y")){
+                beverageManager.addBeverage(beverage);
+            }
+            new Thread(timerThread).start();
+        }
     }
 
     private void orderMenu() {
