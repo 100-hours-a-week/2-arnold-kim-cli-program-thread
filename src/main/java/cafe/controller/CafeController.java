@@ -28,12 +28,12 @@ public class CafeController {
     }
 
     public void run() {
+        new Thread(timerThread).start();
         while (true) {
             orderMenu();
             if (printOrder().equals("Y")){
                 beverageManager.addBeverage(beverage);
             }
-            new Thread(timerThread).start();
         }
     }
 

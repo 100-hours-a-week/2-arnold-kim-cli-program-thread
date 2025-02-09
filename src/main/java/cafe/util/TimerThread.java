@@ -17,7 +17,7 @@ public class TimerThread extends Thread {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(5000);
                 List<Beverage> beverages = beverageManager.getBeverages();
 
                 if (beverages.isEmpty()) {
