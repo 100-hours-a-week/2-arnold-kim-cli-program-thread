@@ -50,9 +50,9 @@ public class InputView {
             System.out.println("Hot");
             System.out.println("Iced");
 
-            String userInput = getUserInput("따뜻한 음료와 차가운 음료 중에서 골라주세요. ");
+            String userInput = getUserInput("따뜻한 음료와 차가운 음료 중에서 골라주세요. ").toUpperCase();
             System.out.println();
-            if (!userInput.equals("Hot") && !userInput.equals("Iced")) {
+            if (!userInput.equals("HOT") && !userInput.equals("ICED")) {
                 System.out.println("Hot 또는 Iced 중에서 선택해주세요.");
                 continue;
             }
@@ -81,7 +81,7 @@ public class InputView {
             System.out.println("M ... +500원");
             System.out.println("L ... +1000원");
 
-            String userInput = getUserInput("사이즈를 선택해주세요. ");
+            String userInput = getUserInput("사이즈를 선택해주세요. ").toUpperCase();
             System.out.println();
             if (!userInput.equals("S") && !userInput.equals("M") && !userInput.equals("L")) {
                 System.out.println("S, M, L 중에서 골라주세요.");

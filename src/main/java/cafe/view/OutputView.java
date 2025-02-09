@@ -14,7 +14,7 @@ public class OutputView {
             System.out.println("가격 : " + beverage.getPrice());
             System.out.println("주문 내역이 맞나요? (Y/N)");
             System.out.print(">> ");
-            String check = sc.nextLine().strip();
+            String check = sc.nextLine().strip().toUpperCase();
             if (!check.equals("Y") && !check.equals("N")) {
                 System.out.println("Y, N 둘 중 하나만 입력해주세요.");
             } else {
