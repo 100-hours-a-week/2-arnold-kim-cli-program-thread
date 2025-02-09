@@ -6,7 +6,7 @@
 사용자의 입력을 받는동안에도 주문이 들어간 음료의 완료까지 남은 시간을 보여줍니다.
 
 ## 구동 영상
-[![Video Label](<img width="229" alt="스크린샷 2025-02-09 오후 12 43 03" src="https://github.com/user-attachments/assets/db86d0ba-669c-4d95-85b5-b716d44296dd" />
+[![Video Label](https://github.com/user-attachments/assets/db86d0ba-669c-4d95-85b5-b716d44296dd
 )]([https://youtu.be/39tTjchNO4s](https://youtu.be/gQuw7HvmJ2g))
 
 ## 입출력 예시
