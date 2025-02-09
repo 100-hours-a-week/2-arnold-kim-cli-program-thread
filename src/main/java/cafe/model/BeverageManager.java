@@ -24,7 +24,7 @@ public class BeverageManager {
             }
             beverages.remove(beverage);
 
-            System.out.println();
+            System.out.println("주문하신 " + beverage.getName() + " 나왔습니다.");
         }).start();
     }
 
