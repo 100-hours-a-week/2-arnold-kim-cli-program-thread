@@ -7,7 +7,7 @@
 
 ## 구동 영상
 [![Video Label](https://github.com/user-attachments/assets/db86d0ba-669c-4d95-85b5-b716d44296dd
-)]([https://youtu.be/39tTjchNO4s](https://youtu.be/gQuw7HvmJ2g))
+)](https://youtu.be/gQuw7HvmJ2g)
 
 ## 입출력 예시
 ```
