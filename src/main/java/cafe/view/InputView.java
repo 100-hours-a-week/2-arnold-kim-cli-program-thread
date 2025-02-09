@@ -114,6 +114,7 @@ public class InputView {
             System.out.print(">> ");
             userInput = sc.nextLine().strip();
         }
+        if (userInput.equals("exit")) { System.exit(0); }
         return userInput;
     }
 }
