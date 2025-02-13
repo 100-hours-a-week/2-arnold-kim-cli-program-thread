@@ -34,7 +34,9 @@ public class TimerThread extends Thread {
                 }
 
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt();
+                System.out.println("Timer thread interrupted");
+                return;
             }
         }
     }
