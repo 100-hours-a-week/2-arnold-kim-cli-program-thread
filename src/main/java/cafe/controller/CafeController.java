@@ -14,6 +14,7 @@ public class CafeController {
     private final OutputView outputView;
     private final CafeService cafeService;
     private final TimerThread timerThread;
+    private static final String COFFEE = "커피";
     private final BeverageManager beverageManager;
     private static Beverage beverage;
 
@@ -45,7 +46,7 @@ public class CafeController {
     private OrderDetatils getOrderDetatils() {
         String beverageType = inputView.getBeverageType();
         String beverageInfo = inputView.getBeverageInfo(beverageType);
-        String isCaffeine = beverageType.equals("커피") ? inputView.getIsCaffeine() : "카페인";
+        String isCaffeine = beverageType.equals(COFFEE) ? inputView.getIsCaffeine() : "카페인";
         String beverageTemperature = inputView.getTemperature();
         String beverageSize = inputView.getSize();
 
@@ -53,7 +54,7 @@ public class CafeController {
     }
 
     private void makeBeverage(OrderDetatils orderDetatils) {
-        if (orderDetatils.getBeverageType().equals("커피")) {
+        if (orderDetatils.getBeverageType().equals(COFFEE)) {
             beverage = cafeService.makeCoffee(orderDetatils.getBeverageInfo(), orderDetatils.getBeverageSize(), orderDetatils.getBeverageTemperature(), orderDetatils.getIsCaffeine());
         } else {
             int numberOfBeverage = Character.getNumericValue(orderDetatils.getBeverageInfo().charAt(0));

@@ -3,11 +3,13 @@ package main.java.cafe.service;
 import main.java.cafe.model.*;
 
 public class CafeService {
+    private static final String CAFFEINE = "카페인";
+    private static final String DECAFFEINE = "디카페인";
 
     public Beverage makeCoffee(String info, String size, String temperature, String isCaffeine) {
         Beverage beverage = makeBeverage(info, size, temperature);
 
-        return new Coffee(beverage.getName(), beverage.isHot(), beverage.getSize(), beverage.getPrice() + getCaffeinePrice(isCaffeine), isCaffeine.equals("카페인"));
+        return new Coffee(beverage.getName(), beverage.isHot(), beverage.getSize(), beverage.getPrice() + getCaffeinePrice(isCaffeine), isCaffeine.equals(CAFFEINE));
     }
 
     public Beverage makeAde(String info, String size, String temperature, String sweetness) {
@@ -43,7 +45,7 @@ public class CafeService {
     }
 
     private int getCaffeinePrice(String isCaffeine) {
-        if (isCaffeine.equals("디카페인")) {
+        if (isCaffeine.equals(DECAFFEINE)) {
             return 500;
         }
         return 0;
